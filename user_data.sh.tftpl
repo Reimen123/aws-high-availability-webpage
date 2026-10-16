@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+dnf install -y httpd
+
+echo '${index_html}' | base64 -d > /var/www/html/index.html
+echo '${style_css}'  | base64 -d > /var/www/html/style.css
+echo '${error_html}' | base64 -d > /var/www/html/error.html
+
+cat > /etc/httpd/conf.d/custom-error.conf <<'EOF'
+ErrorDocument 404 /error.html
+EOF
+
+systemctl enable httpd
+systemctl restart httpd

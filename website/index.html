@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Highly Available Webpage</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="hero">
+    <div class="container">
+        <p class="eyebrow">IU Cloud Programming Portfolio</p>
+        <h1>Highly Available Webpage on AWS</h1>
+        <p class="intro">This webpage is delivered through a scalable AWS architecture designed for availability, global
+            access and automatic scaling.</p>
+        <a class="button" href="#architecture">View architecture</a>
+    </div>
+</header>
+<main>
+    <section class="container section">
+        <h2>Project objective</h2>
+        <p>The objective is to deploy a simple webpage using AWS services that support high availability, low-latency
+            global delivery and automatic backend scaling.</p>
+    </section>
+    <section id="architecture" class="container section">
+        <h2>AWS architecture</h2>
+        <div class="cards">
+            <article class="card"><h3>CloudFront</h3>
+                <p>Provides global content delivery through AWS edge locations.</p></article>
+            <article class="card"><h3>Application Load Balancer</h3>
+                <p>Distributes HTTP requests across healthy web servers.</p></article>
+            <article class="card"><h3>EC2 Auto Scaling</h3>
+                <p>Maintains capacity across multiple Availability Zones and can scale with demand.</p></article>
+        </div>
+    </section>
+    <section class="container section">
+        <h2>Request flow</h2>
+        <div class="architecture">User → CloudFront → Application Load Balancer → EC2 Auto Scaling Group</div>
+    </section>
+    <section class="container section">
+        <h2>Infrastructure as Code</h2>
+        <p>The infrastructure is defined with Terraform so the environment can be reproduced from code instead of being
+            configured manually.</p>
+    </section>
+</main>
+<footer>
+    <div class="container"><p>DLBSEPCP01_E · AWS portfolio project</p></div>
+</footer>
+</body>
+</html>
