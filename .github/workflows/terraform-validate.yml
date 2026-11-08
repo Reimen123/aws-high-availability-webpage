@@ -2,12 +2,7 @@ name: Terraform validation
 
 on:
   push:
-    branches: [main]
   pull_request:
-    branches: [main]
-
-permissions:
-  contents: read
 
 jobs:
   validate:
@@ -15,18 +10,16 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: "1.16.2"
+        uses: hashicorp/setup-terraform@v4
 
       - name: Terraform format check
         run: terraform fmt -check -recursive
 
       - name: Terraform init
-        run: terraform init -backend=false -input=false
+        run: terraform init -backend=false
 
       - name: Terraform validate
         run: terraform validate
