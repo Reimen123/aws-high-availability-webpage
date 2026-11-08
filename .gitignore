@@ -1,14 +1,20 @@
-# IntelliJ IDEA
-.idea/
-*.iml
-
-# Terraform
+# Terraform working files and state
 .terraform/
 *.tfstate
 *.tfstate.*
 terraform.tfvars
+*.tfplan
+tfplan
 crash.log
 crash.*.log
-
-# Terraform temporary lock
 .terraform.tfstate.lock.info
+
+# Keep .terraform.lock.hcl in version control for reproducible provider versions.
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Operating system files
+.DS_Store
+Thumbs.db

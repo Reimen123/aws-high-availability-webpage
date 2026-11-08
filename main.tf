@@ -187,9 +187,6 @@ resource "aws_autoscaling_group" "web" {
   vpc_zone_identifier = aws_subnet.public[*].id
   target_group_arns   = [aws_lb_target_group.web.arn]
 
-  health_check_type         = "ELB"
-  health_check_grace_period = 180
-
   enabled_metrics = [
     "GroupMinSize",
     "GroupMaxSize",
@@ -199,8 +196,10 @@ resource "aws_autoscaling_group" "web" {
     "GroupTerminatingInstances",
     "GroupTotalInstances"
   ]
-
   metrics_granularity = "1Minute"
+
+  health_check_type         = "ELB"
+  health_check_grace_period = 180
 
   launch_template {
     id      = aws_launch_template.web.id
